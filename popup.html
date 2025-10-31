@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Span Calculator - Chrome Extension</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">⏱️</span>
+                <h1>Time Span Calculator</h1>
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="content">
+            <div class="main-layout">
+                <!-- Start Time -->
+                <div class="time-input-group compact">
+                    <label for="start-time">Start Time</label>
+                    <div class="time-input-container">
+                        <input type="text" id="start-time" class="time-input" value="" maxlength="10" placeholder="9a, 930a, 9:30 AM">
+                        <div class="time-dropdown">
+                            <button class="dropdown-btn" type="button" aria-label="Quick time selection">⏰</button>
+                            <div class="dropdown-content">
+                                <div class="quick-times">
+                                    <div class="dropdown-item" data-time="now">Now</div>
+                                    <div class="dropdown-item" data-time="08:00 AM">8:00 AM</div>
+                                    <div class="dropdown-item" data-time="09:00 AM">9:00 AM</div>
+                                    <div class="dropdown-item" data-time="10:00 AM">10:00 AM</div>
+                                    <div class="dropdown-item" data-time="11:00 AM">11:00 AM</div>
+                                    <div class="dropdown-item" data-time="12:00 PM">12:00 PM</div>
+                                    <div class="dropdown-item" data-time="01:00 PM">1:00 PM</div>
+                                    <div class="dropdown-item" data-time="02:00 PM">2:00 PM</div>
+                                    <div class="dropdown-item" data-time="03:00 PM">3:00 PM</div>
+                                    <div class="dropdown-item" data-time="04:00 PM">4:00 PM</div>
+                                    <div class="dropdown-item" data-time="05:00 PM">5:00 PM</div>
+                                    <div class="dropdown-item" data-time="06:00 PM">6:00 PM</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="time-controls">
+                            <button class="time-btn up" aria-label="Increase time by 1 minute">▲</button>
+                            <button class="time-btn down" aria-label="Decrease time by 1 minute">▼</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- End Time -->
+                <div class="time-input-group compact">
+                    <label for="end-time">End Time</label>
+                    <div class="time-input-container">
+                        <input type="text" id="end-time" class="time-input" value="07:00 AM" maxlength="10" placeholder="9a, 930a, 9:30 AM">
+                        <div class="time-dropdown">
+                            <button class="dropdown-btn" type="button" aria-label="Quick time selection">⏰</button>
+                            <div class="dropdown-content">
+                                <div class="quick-times">
+                                    <div class="dropdown-item" data-time="now">Now</div>
+                                    <div class="dropdown-item" data-time="08:00 AM">8:00 AM</div>
+                                    <div class="dropdown-item" data-time="09:00 AM">9:00 AM</div>
+                                    <div class="dropdown-item" data-time="10:00 AM">10:00 AM</div>
+                                    <div class="dropdown-item" data-time="11:00 AM">11:00 AM</div>
+                                    <div class="dropdown-item" data-time="12:00 PM">12:00 PM</div>
+                                    <div class="dropdown-item" data-time="01:00 PM">1:00 PM</div>
+                                    <div class="dropdown-item" data-time="02:00 PM">2:00 PM</div>
+                                    <div class="dropdown-item" data-time="03:00 PM">3:00 PM</div>
+                                    <div class="dropdown-item" data-time="04:00 PM">4:00 PM</div>
+                                    <div class="dropdown-item" data-time="05:00 PM">5:00 PM</div>
+                                    <div class="dropdown-item" data-time="06:00 PM">6:00 PM</div>
+                                    <div class="dropdown-item" data-time="07:00 PM">7:00 PM</div>
+                                    <div class="dropdown-item" data-time="08:00 PM">8:00 PM</div>
+                                    <div class="dropdown-item" data-time="09:00 PM">9:00 PM</div>
+                                    <div class="dropdown-item" data-time="10:00 PM">10:00 PM</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="time-controls">
+                            <button class="time-btn up" aria-label="Increase time by 1 minute">▲</button>
+                            <button class="time-btn down" aria-label="Decrease time by 1 minute">▼</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Minutes Result -->
+                <div class="result-section">
+                    <div class="minutes-display">
+                        <span class="minutes-label">Total Minutes</span>
+                        <div class="minutes-value-wrapper">
+                            <span id="minutes-value" class="minutes-value">0</span>
+                            <button class="copy-btn" id="copy-btn" title="Copy minutes to clipboard">
+                                <span class="copy-icon">📋</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Minutes Section -->
+                <div class="time-input-group compact">
+                    <label for="add-minutes">Add Minutes to Start Time</label>
+                    <div class="add-minutes-container">
+                        <input type="number" id="add-minutes" class="time-input" placeholder="90 mins" min="0" step="1" value="90">
+                        <div class="add-minutes-controls">
+                            <button class="time-btn up" aria-label="Increase minutes by 1">▲</button>
+                            <button class="time-btn down" aria-label="Decrease minutes by 1">▼</button>
+                        </div>
+                        <button class="btn btn-primary" type="button" id="add-minutes-btn" aria-label="Apply minutes">Apply</button>
+                    </div>
+                    <div class="time-result">
+                        <span id="add-minutes-result">End at: —</span>
+                        <button class="copy-btn-small" id="copy-add-minutes-btn" title="Copy end time to clipboard">
+                            <span class="copy-icon">📋</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Action buttons -->
+                <div class="button-group compact">
+                    <button class="btn btn-secondary" id="update-current-time-btn">
+                        <span class="btn-icon">🔄</span> Update Current Time
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Extension footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <span>Time Span Calculator &copy; 2025</span>
+                <span class="github-link">by 
+                    <a href="https://github.com/morrowchristian" target="_blank">morrowchristian</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/time-calculations.js"></script>
+    <script src="scripts/time-inputs.js"></script>
+    <script src="scripts/ui-components.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

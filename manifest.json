@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "TimeSpan Calculator",
+  "version": "1.0.0",
+  "description": "Professional time duration calculator - Created by Christian Morrow",
+  "author": "Christian Morrow (morrowchristian)",
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TimeSpan Calculator"
+  },
+  
+  "permissions": [
+    "storage"
+  ]
+}

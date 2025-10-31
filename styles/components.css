@@ -1,0 +1,384 @@
+/* Component Styles */
+
+/* Time Input Groups */
+.time-input-group.compact {
+    margin-bottom: 0;
+}
+
+.time-input-group.compact label {
+    font-size: 13px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: block;
+}
+
+.time-input-container {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    background: white;
+    height: 36px;
+}
+
+.time-input-container:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.15);
+}
+
+.time-input {
+    flex: 1;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    background: transparent;
+    color: var(--text-primary);
+    min-width: 0;
+    height: 100%;
+}
+
+.time-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+/* Time Controls */
+.time-controls {
+    display: flex;
+    flex-direction: column;
+    border-left: 1.5px solid var(--border-color);
+    background: var(--background-color);
+    height: 100%;
+    width: 28px;
+    flex-shrink: 0;
+}
+
+.time-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 9px;
+    flex: 1;
+    min-height: 0;
+    padding: 0;
+    height: 50%;
+}
+
+.time-btn:hover {
+    background: #e8f0fe;
+    color: var(--primary-color);
+}
+
+.time-btn:active {
+    background: #d2e3fc;
+}
+
+.time-btn.up {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Minutes Display */
+.result-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1.5px dashed var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.minutes-display {
+    text-align: center;
+}
+
+.minutes-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.minutes-value-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.minutes-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+    letter-spacing: -0.5px;
+}
+
+/* Buttons */
+.btn {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: var(--background-color);
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: #e8f0fe;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-icon {
+    font-size: 14px;
+}
+
+/* Add Minutes Section */
+.add-minutes-container {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: white;
+    height: 36px;
+    gap: 0;
+}
+
+.add-minutes-container:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.15);
+}
+
+.add-minutes-container .time-input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+.add-minutes-controls {
+    display: flex;
+    flex-direction: column;
+    border-left: 1.5px solid var(--border-color);
+    background: var(--background-color);
+    height: 100%;
+    width: 28px;
+    flex-shrink: 0;
+}
+
+.add-minutes-container .btn-primary {
+    border-radius: 0;
+    height: 100%;
+    white-space: nowrap;
+    min-width: 60px;
+}
+
+/* Time Dropdown */
+.time-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0 8px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1.5px solid var(--border-color);
+    font-size: 12px;
+    min-width: 32px;
+}
+
+.dropdown-btn:hover {
+    background: #f5f7fb;
+    color: var(--primary-color);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 120px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    right: 0;
+    top: 100%;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 13px;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: #f5f7fb;
+    color: var(--primary-color);
+}
+
+.dropdown-item.current {
+    background: var(--primary-color);
+    color: white;
+}
+
+.quick-times {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 8px;
+}
+
+/* Copy Buttons */
+.copy-btn {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: var(--transition);
+    box-shadow: 0 1px 4px rgba(66, 133, 244, 0.3);
+}
+
+.copy-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+    box-shadow: 0 2px 6px rgba(66, 133, 244, 0.4);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+.copy-btn.copied {
+    background: var(--secondary-color);
+}
+
+.copy-btn-small {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+    transition: var(--transition);
+    box-shadow: 0 1px 3px rgba(66, 133, 244, 0.3);
+    padding: 0;
+    margin-left: 6px;
+    flex-shrink: 0;
+}
+
+.copy-btn-small:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.copy-btn-small:active {
+    transform: scale(0.95);
+}
+
+.copy-btn-small.copied {
+    background: var(--secondary-color);
+}
+
+/* Time Result Display */
+.time-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 12px;
+    padding: 6px 0 0 0;
+    margin-top: 4px;
+}
+
+.time-result strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Button Group */
+.button-group.compact {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+.button-group.compact .btn {
+    flex: 1;
+    padding: 10px 16px;
+}
