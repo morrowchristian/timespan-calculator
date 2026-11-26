@@ -44,6 +44,10 @@
                                     <div class="dropdown-item" data-time="04:00 PM">4:00 PM</div>
                                     <div class="dropdown-item" data-time="05:00 PM">5:00 PM</div>
                                     <div class="dropdown-item" data-time="06:00 PM">6:00 PM</div>
+                                    <div class="dropdown-item" data-time="07:00 PM">7:00 PM</div>
+                                    <div class="dropdown-item" data-time="08:00 PM">8:00 PM</div>
+                                    <div class="dropdown-item" data-time="09:00 PM">9:00 PM</div>
+                                    <div class="dropdown-item" data-time="10:00 PM">10:00 PM</div>
                                 </div>
                             </div>
                         </div>
@@ -52,6 +56,11 @@
                             <button class="time-btn down" aria-label="Decrease time by 1 minute">▼</button>
                         </div>
                     </div>
+                </div>
+
+                <!-- Swap Start / End -->
+                <div class="swap-row">
+                    <button class="swap-btn" id="swap-btn" type="button" title="Swap start and end times" aria-label="Swap start and end times">⇅</button>
                 </div>
                 
                 <!-- End Time -->
@@ -99,7 +108,9 @@
                                 <span class="copy-icon">📋</span>
                             </button>
                         </div>
+                        <span id="minutes-breakdown" class="minutes-breakdown"></span>
                     </div>
+                    <div id="input-error" class="error-message" role="alert" hidden></div>
                 </div>
 
                 <!-- Add Minutes Section -->
