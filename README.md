@@ -2,13 +2,20 @@
 
 A professional time duration calculator Chrome extension that helps calculate time differences and add minutes to times with smart parsing and beautiful formatting.
 
-![Time Span Calculator](https://img.shields.io/badge/Version-1.0.0-blue.svg)
+![Time Span Calculator](https://img.shields.io/badge/Version-1.1.0-blue.svg)
 ![Chrome Extension](https://img.shields.io/badge/Platform-Chrome%20Extension-yellow.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
+
+## 📸 Screenshots
+
+![Time Span Calculator](screenshot_1.png)
 
 ## ✨ Features
 
 - **⏰ Smart Time Calculator** - Calculate minutes between two times instantly
+- **🕐 Duration Breakdown** - See the result as hours and minutes (e.g. 1h 30m) alongside total minutes
+- **🔄 Swap Times** - One click swaps the start and end times
+- **🌍 Local Timezone** - Uses your system's timezone for "Now" and formatted output (no longer Central-only)
 - **➕ Add Minutes Functionality** - Add X minutes to start time with formatted result output
 - **🎯 Smart Time Parsing** - Supports multiple input formats (9a, 930a, 9:30 AM, etc.)
 - **⚡ Quick Time Selection** - Dropdown with common times and "Now" option
@@ -95,9 +102,9 @@ timespan-calculator/
 
 ### Key Features
 - **Smart Time Parsing** - Flexible input handling with multiple format support
-- **Time Zone Awareness** - Automatic CDT/CST detection with formatted output
+- **Time Zone Awareness** - Uses your local timezone with formatted output
 - **Increment/Decrement Controls** - Precise time adjustment with arrow buttons
-- **Error Handling** - Robust validation with user-friendly error messages
+- **Error Handling** - Robust validation with visible inline error messages
 - **Keyboard Navigation** - Full keyboard accessibility support
 
 ## 🛠️ Development

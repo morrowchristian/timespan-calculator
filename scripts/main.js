@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         startTimeInput: document.getElementById('start-time'),
         endTimeInput: document.getElementById('end-time'),
         minutesValue: document.getElementById('minutes-value'),
+        swapBtn: document.getElementById('swap-btn'),
         updateCurrentTimeBtn: document.getElementById('update-current-time-btn'),
         copyBtn: document.getElementById('copy-btn'),
         addMinutesInput: document.getElementById('add-minutes'),
@@ -41,6 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupEventListeners() {
         // Update current time button
         elements.updateCurrentTimeBtn.addEventListener('click', updateCurrentTime);
+        
+        // Swap start and end times
+        if (elements.swapBtn) {
+            elements.swapBtn.addEventListener('click', swapStartAndEnd);
+        }
         
         // Copy buttons
         elements.copyBtn.addEventListener('click', copyMinutesToClipboard);
@@ -159,6 +165,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (parsed && parsed !== this.value) {
             this.value = parsed;
         }
+        saveAndCalculate();
+    }
+
+    /**
+     * Swaps the start and end times, then recalculates and saves
+     */
+    function swapStartAndEnd() {
+        const start = elements.startTimeInput.value;
+        elements.startTimeInput.value = elements.endTimeInput.value;
+        elements.endTimeInput.value = start;
         saveAndCalculate();
     }
 

@@ -101,16 +101,23 @@ class TimeCalculator {
     }
     
     /**
-     * Gets timezone abbreviation (CDT/CST)
+     * Gets the timezone abbreviation for the user's local timezone
+     * (e.g. EST, PST, BST, UTC). Falls back to a GMT offset label
+     * (e.g. "GMT-5") when no abbreviation can be parsed.
      */
     static getTimezoneAbbrev() {
         const date = new Date();
         const tzString = date.toLocaleTimeString('en-US', {
-            timeZoneName: 'short', 
-            timeZone: 'America/Chicago'
+            timeZoneName: 'short'
         });
-        const match = tzString.match(/\s([A-Z]{3,4})$/);
-        return match ? match[1] : 'CDT';
+        const match = tzString.match(/\s([A-Z]{3,5})$/);
+        if (match) return match[1];
+
+        // Fallback: build a GMT offset label from the local offset.
+        const offsetMinutes = -date.getTimezoneOffset();
+        const sign = offsetMinutes >= 0 ? '+' : '-';
+        const hours = Math.floor(Math.abs(offsetMinutes) / 60);
+        return `GMT${sign}${hours}`;
     }
     
     /**
@@ -131,12 +138,11 @@ class TimeCalculator {
     }
     
     /**
-     * Gets current time in Central Time
+     * Gets current time in the user's local timezone
      */
     static getCurrentTime() {
         const now = new Date();
         return now.toLocaleTimeString('en-US', {
-            timeZone: 'America/Chicago',
             hour12: true,
             hour: '2-digit',
             minute: '2-digit'

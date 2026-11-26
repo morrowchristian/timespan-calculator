@@ -60,7 +60,21 @@ class UIComponents {
     }
 
     /**
-     * Updates minutes display with animation
+     * Formats a minute count as a human-friendly breakdown
+     * (90 -> "1h 30m", 45 -> "45m", 150 -> "2h 30m", 0 -> "0m")
+     */
+    static formatDuration(totalMinutes) {
+        const minutes = Math.max(0, Math.floor(totalMinutes));
+        const hours = Math.floor(minutes / 60);
+        const mins = minutes % 60;
+        if (hours === 0) return `${mins}m`;
+        if (mins === 0) return `${hours}h`;
+        return `${hours}h ${mins}m`;
+    }
+
+    /**
+     * Updates minutes display with animation, plus the
+     * human-friendly hours/minutes breakdown underneath
      */
     static updateMinutesDisplay(minutesValue, difference) {
         if (minutesValue) {
@@ -70,6 +84,10 @@ class UIComponents {
             setTimeout(() => {
                 minutesValue.classList.remove('pulse');
             }, 600);
+        }
+        const breakdown = document.getElementById('minutes-breakdown');
+        if (breakdown) {
+            breakdown.textContent = this.formatDuration(difference);
         }
     }
 
@@ -119,13 +137,23 @@ class UIComponents {
     }
 
     /**
-     * Displays error state for input field
+     * Displays error state for input field, with a visible inline
+     * message and a dash in place of the minutes result
      */
     static displayInputError(input, message, minutesValue = null) {
         input.classList.add('error');
         input.title = message;
         if (minutesValue) {
-            minutesValue.textContent = 'Error';
+            minutesValue.textContent = '—';
+        }
+        const breakdown = document.getElementById('minutes-breakdown');
+        if (breakdown) {
+            breakdown.textContent = '';
+        }
+        const errorEl = document.getElementById('input-error');
+        if (errorEl) {
+            errorEl.textContent = message;
+            errorEl.hidden = false;
         }
         
         console.warn('Time Span Calculator Input Error:', message);
@@ -139,6 +167,11 @@ class UIComponents {
             input.classList.remove('error');
             input.title = '';
         });
+        const errorEl = document.getElementById('input-error');
+        if (errorEl) {
+            errorEl.textContent = '';
+            errorEl.hidden = true;
+        }
     }
 
     /**
